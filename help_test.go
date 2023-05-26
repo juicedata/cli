@@ -1593,8 +1593,8 @@ COMMANDS:
             for one command
 
 GLOBAL OPTIONS:
-   --help, -h    show help
    --strd value  
+   --help, -h    show help
 
    cat1
 
