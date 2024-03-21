@@ -91,3 +91,20 @@ func lookupString(name string, set *flag.FlagSet) string {
 	}
 	return ""
 }
+
+// StringDefault looks up the default value of a local StringFlag,
+// returns "" if not found
+func (cCtx *Context) StringDefault(name string) string {
+	if fs := cCtx.lookupFlagSet(name); fs != nil {
+		return lookupStringDefault(name, fs)
+	}
+	return ""
+}
+
+func lookupStringDefault(name string, set *flag.FlagSet) string {
+	f := set.Lookup(name)
+	if f != nil {
+		return f.DefValue
+	}
+	return ""
+}
